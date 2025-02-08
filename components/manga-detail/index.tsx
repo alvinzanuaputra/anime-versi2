@@ -1,14 +1,16 @@
 "use client";
+
 import { TFullManga } from "@/types";
 import Image from "next/image";
 import { Card } from "../ui/card";
 import { Star } from "../ui/star";
+
+import { Badge } from "../ui/badge";
+import { Separator } from "../ui/separator";
 import Link from "next/link";
 import { Breadcrumb } from "../ui/breadcrumb";
 import { usePathname } from "next/navigation";
 import { FC } from "react";
-import 'animate.css';
-import { HeroSmall } from "../layout/hero-small";
 
 interface MangaDetailProps {
   dataManga: TFullManga;
@@ -20,109 +22,121 @@ const MangaDetail: FC<MangaDetailProps> = ({ dataManga }) => {
   arrayPath = path.split("/").filter(Boolean);
 
   return (
-    <div className="mb-20">
-      <div className="mb-4 bg-color-primary dark:bg-color-hitam text-left overflow-x-hidden animate__animated animate__fadeInUp animate__delay-0.3s">
-
-        <Card className="py-2 min-h-full w-full bg-color-white dark:bg-color-hitam justify-between col-span-1">
-          <div className="mx-8">
+    <>
+      <div className="flex flex-col md:flex-row">
+        <Image
+          src={dataManga.data.images.webp.image_url}
+          alt="image"
+          width={500}
+          height={350}
+          className="hover-image w-full lg:w-auto max-h-96 object-cover rounded-sm transition-all"
+        />
+        <Card className="my-5 md:my-0 ml-5 hidden lg:flex flex-col border-0 min-h-full w-full justify-around col-span-1 bg-inherit shadow-none">
+          <div className="mx-8 my-2">
             <Breadcrumb path={arrayPath} page={dataManga.data.title} />
-
+            <Separator className="my-2" />
           </div>
-        </Card>
-
-        <HeroSmall title={dataManga.data.title} genres={dataManga.data.genres} />
-
-        <div className="flex flex-rows-2 text-color-primary bg-color-white dark:bg-color-dark px-4 py-6 lg:py-8">
-
-
-          <div className="w-8/7 lg:w-8/11 justify-center mb-4">
-            <Image
-              src={dataManga.data.images.webp.image_url}
-              alt="image"
-              width={323}
-              height={150}
-              className="shadow-color-hitam shadow-xl my-1 w-3/4 ml-4 lg:w-5/7 md:w-2/3"
-            />
-          </div>
-
-
-          <div className="text-[11px] md:text-[10px] lg:text-lg sm:text-[19px] xs:pl-2">
-            <h2 className="flex font-bold text-[14px] lg:font-semibold md:text-2xl lg:text-3xl sm:text-2xl text-color-accent underline">{dataManga.data.title}
-            </h2>
-            <p className="font-bold flex flex-row mb-4 lg:my-4 text-color-hitam dark:text-color-white">Original</p>
-            <div className="w-full flex flex-rows-3 my-1 gap-2 mt-2 text-[8px] lg:gap-10 lg:text-lg text-color-hitam dark:text-color-white font-semibold">
-              <p>{dataManga.data.rank}</p>
-              <p>{dataManga.data.popularity}</p>
-              <p className="flex flex-rows-4">
-                {dataManga.data.members}
-              </p>
-              <p className="flex flex-rows-4">
-                {dataManga.data.type}
-              </p>
-
+          <div className="flex">
+            <div className="mx-8 my-3 space-y-1 flex flex-col items-center justify-between p-2 w-[15dvh]">
+              <h3 className="text-xs py-1 text-center w-full rounded text-white bg-red-600">
+                SCORE
+              </h3>
+              <h4 className="text-3xl font-bold">{dataManga.data.score}</h4>
+              <h5 className="text-xs">{dataManga.data.scored_by} users</h5>
+              <Star score={dataManga.data.score} />
             </div>
-            <div className="flex-rows-4">
-
-
-
-
-
-              <div className="w-36 text-[9px] items-center my-1 lg:text-base lg:my-2 text-color-hitam font-semibold dark:text-color-white">
-                <h1>Series : {dataManga.data.chapters}</h1>
+            <Separator orientation="vertical" className="py-5 h-3/4 my-auto" />
+            <div className="flex flex-col flex-wrap">
+              <div className="flex mx-5 mt-10 gap-5 text-2xl font-medium">
+                <h3>
+                  Ranked <strong>#{dataManga.data.rank}</strong>
+                </h3>
+                <h3>
+                  Popularity <strong>#{dataManga.data.popularity}</strong>
+                </h3>
+                <h3>
+                  Members <strong>#{dataManga.data.members}</strong>
+                </h3>
               </div>
-              <div className="text-[8px] md:text-xs sm:text-xs lg:text-base text-color-hitam dark:text-color-white font-semibold">
-                <p className="">
-                  {dataManga.data.score}
-                  <span className=" text-color-accent mx-1 lg:mx-3">|</span>
-                  {dataManga.data.status}
-                  <span className=" text-color-accent mx-1 mb-1 lg:mx-3">|</span>
-                  {dataManga.data.type}</p>
-
-                <p className="mt-3"><Star
-                  score={dataManga.data.score}
-                  scoredBy={dataManga.data.scored_by}
-                />
-                </p>
+              <div className="flex mx-5 py-5 gap-5 text-sm font-medium">
+                <h5>{dataManga.data.type}</h5>
+                <Separator orientation="vertical" />
+                <h5 className="flex">
+                  {dataManga.data.external.map((ext, index) => (
+                    <>
+                      {index !== 0 && (
+                        <Separator orientation="vertical" className="mx-2" />
+                      )}
+                      <Link
+                        key={index}
+                        href={ext.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-red-600 hover:underline"
+                      >
+                        {ext.name}
+                      </Link>
+                    </>
+                  ))}
+                </h5>
+                <Separator orientation="vertical" />
+                <h5>
+                  {dataManga.data.chapters ? dataManga.data.chapters : "?"}{" "}
+                  Chapters
+                </h5>
               </div>
             </div>
           </div>
-
-
-        </div>
-        <section className="border-t-2 border-color-blue dark:border-color-accent"></section>
-          <div className="border-color-t-2 border-color-accent px-8 py-3 my-4 bg-color-primary dark:bg-color-hitam ">
-            <h1 className="text-color-hitam dark:text-color-white font-bold ">Sinopsis</h1>
-            <p className="text-color-hitam dark:text-color-white mt-4 text-[10px] sm:text-[10px] md:text-[10px] lg:text-xs">{dataManga.data.background}</p>
-            <p className="text-color-hitam dark:text-color-white mb-4 text-[10px] sm:text-[10px] md:text-[10px] lg:text-xs">{dataManga.data.synopsis}</p>
-          </div>
-
-
-      </div>
-          <div className="px-8 pb-4 py-4 bg-color-primary dark:bg-color-hitam">
-            <h1 className="text-color-hitam dark:text-color-white font-bold ">Studio dan Pembuat </h1>
-            <p className="text-color-hitam dark:text-color-white mt-4 text-[10px] sm:text-[10px] md:text-[10px] lg:text-xs">
-              {dataManga.data.serializations.map((studio, index) => (
-                <li key={index}>{studio.name}</li>
-              ))}
-              <ol className="list-disc" >
-                {dataManga.data.authors.map((producer, index) => (
-                  <li className="list-inside" key={index}>
-                    {producer.name}
-                  </li>
-                ))}
-              </ol>
+          <div className="mx-8 mb-5">
+            <h4>Background</h4>
+            <Separator className="my-2" />
+            <p className="text-base text-justify">
+              {dataManga.data.background}
             </p>
           </div>
-        <section className="border-t-2 border-color-blue dark:border-color-accent mb-4">
-        </section>
-      <Link
-        href={dataManga.data.url}
-        target="_blank"
-        className="underline mx-4 text-color-accent text-sm hover:text-color-hitam dark:hover:text-color-primary "
-      >
-        Kunjungi situs website resmi manga
-      </Link>
-    </div>
+        </Card>
+      </div>
+      <div className="lg:hidden flex flex-col items-center justify-center gap-2 py-5">
+        <Star
+          score={dataManga.data.score}
+          scoredBy={dataManga.data.scored_by}
+        />
+        <div className="flex flex-row flex-wrap justify-center items-center gap-2">
+          <Badge>Rank #{dataManga.data.rank}</Badge>
+          <Badge>Popularity #{dataManga.data.popularity}</Badge>
+          <Badge>Members #{dataManga.data.members}</Badge>
+          <Badge>Favorites #{dataManga.data.favorites}</Badge>
+          <Badge>Chapters #{dataManga.data.chapters}</Badge>
+        </div>
+        <p className="text-xs text-center">{dataManga.data.background}</p>
+      </div>
+      <div className="py-8 pb-14">
+        <h3 className="text-base">Status : {dataManga.data.status}</h3>
+        <Separator className="my-2" />
+        <p className="text-base text-justify m-2 ">{dataManga.data.synopsis}</p>
+        <ul className="mt-2">
+          Serializations :
+          {dataManga.data.serializations.map((studio, index) => (
+            <li key={index}>{studio.name}</li>
+          ))}
+        </ul>
+        <ol className="mt-2 list-disc">
+          Authors :
+          {dataManga.data.authors.map((producer, index) => (
+            <li key={index} className="list-inside">
+              {producer.name}
+            </li>
+          ))}
+        </ol>
+        <Link
+          href={dataManga.data.url}
+          target="_blank"
+          className="mt-4 text-sm hover:text-red-600"
+        >
+          Visit Official Website
+        </Link>
+      </div>
+    </>
   );
 };
 

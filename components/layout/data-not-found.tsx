@@ -4,8 +4,8 @@ export const DataNotFound = () => {
   return (
     <Card>
       <CardContent className="text-center py-10">
-        <h1 className="text-3xl font-semibold">Data Tidak Ditemukan !</h1>
-        <p>Silakan coba lagi ! atau kamu dapat memeriksa halaman lain melalui halaman di bawah ini!</p>
+        <h1 className="text-3xl font-semibold">Data Not Found</h1>
+        <p>Please try again! or you can check another page through this pagination below!</p>
       </CardContent>
     </Card>
   );

@@ -19,6 +19,6 @@ export const authUserSession = async (): Promise<TUser | null> => {
     const auth = await getServerSession(options);
     return auth?.user ?? null;
   } catch (error) {
-    throw new Error("Gagal mengauntentikasi pengguna !");
+    throw new Error("Failed to authenticate user");
   }
 };

@@ -20,8 +20,8 @@ function Breadcrumb({ path, page, separator, ...props }: BreadcrumbProps) {
 
   return (
     <div className="flex items-center space-x-1 capitalize text-sm" {...props}>
-      <Link href="/" className=" hover:bg-color-accent rounded-[2px] border border-color-accent px-2">
-        Beranda
+      <Link href="/" className="hover:text-red-700">
+        Home
       </Link>
       {separator || Separator}
 
@@ -35,17 +35,12 @@ function Breadcrumb({ path, page, separator, ...props }: BreadcrumbProps) {
                   : `/${path.slice(0, index + 2).join("/")}`
               }
               key={index}
-              className=" hover:bg-color-accent rounded-[2px] border border-color-accent px-2"
+              className="hover:text-red-700"
             >
               {item}
             </Link>
           ) : page ? (
-            <div>{page.split('.').map((sentence, index) => (
-              <p key={index} className="flex flex-rows-4">
-                {sentence.split(' ').slice(0, 1).join(' ')}
-              </p>
-            ))}</div>
-            
+            <p>{page}</p>
           ) : (
             <p key={index}>{item}</p>
           )}

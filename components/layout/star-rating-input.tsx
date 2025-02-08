@@ -28,7 +28,7 @@ export const StarRatingInput: FC<Props> = ({
 
   return (
     <div className="flex items-center">
-      <p className="text-sm mr-3">Tambahkan peringkat</p>
+      <p className="text-sm mr-3">Give Your Rating For This Anime</p>
       {[...Array(5)].map((_, index) => {
         const currentRating = index + 1;
         const handleClick = () => {

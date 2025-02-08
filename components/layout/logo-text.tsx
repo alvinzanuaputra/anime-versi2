@@ -6,7 +6,7 @@ export const LogoText = ({ className }: { className?: string }) => {
     <div className="flex items-center">
       <Image src="/images/ken-red.png" width={50} height={50} alt="logo" />
       <h1 className={cn("text-xl md:text-2xl font-bold", className)}>
-        ZNU<span className="text-color-accent">A</span>NIME
+        ZOR<span className="text-red-700">A</span>NIME
       </h1>
     </div>
   );

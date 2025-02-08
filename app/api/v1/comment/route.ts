@@ -21,11 +21,11 @@ export async function POST(req: Request) {
   if (!createComment) {
     return Response.json({
       status: 500,
-      message: "Gagal menambahkan komentar !",
+      message: "Failed to add comment",
     });
   } else
     return Response.json({
       status: 200,
-      message: "Sukses menambahkan komentar !",
+      message: "Comment added successfully!",
     });
 }

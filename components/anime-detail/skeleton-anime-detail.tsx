@@ -9,8 +9,8 @@ const SkeletonAnimeDetail: FC = () => {
   return (
     <>
       <HeroSmall title="Anime Detail" breadcrumb />
-      <section className="px-2 pb-8 md:px-10 bg-color-blue dark:bg-color-dark dark:text-color-accent">
-        <div className="bg-color-blue dark:bg-color-dark p-2">
+      <section className="px-2 pb-8 md:px-10 bg-neutral-100 dark:bg-neutral-800 dark:text-white">
+        <div className="bg-neutral-50 dark:bg-neutral-700 p-2">
           <div className="flex flex-col md:flex-row">
             <Skeleton className="w-[500px] h-[350px]" />
             <Card className="my-5 md:my-0 md:ml-5 flex flex-col border-0 min-h-full w-full justify-between col-span-1">

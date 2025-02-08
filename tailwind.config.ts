@@ -36,21 +36,10 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      backgroundImage: {
+        kaneki: "url('/images/kaneki.png')",
+      },
     },
-    colors: {
-      color: {
-      hitam: '#000000', 
-      blue :'#eee',
-      abuabu: '#2B3333',
-      primary: '#eeeeee',
-      accent: '#39A7FF',
-      dark: '#0F0F0F',
-      third : '#191919',
-      yellow : '#EBF400',
-      white: '#fff',
-      red:'#B80000',
-      }
-    }
   },
   plugins: [require("tailwindcss-animate")],
 };

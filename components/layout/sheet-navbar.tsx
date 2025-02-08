@@ -1,7 +1,7 @@
 import {
   Sheet,
   SheetContent,
-  // SheetDescription,
+  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -22,55 +22,53 @@ export const SheetNavbar = () => {
     <Sheet>
       <SheetTrigger
         aria-label="Open menu"
-        className=" flex items-center min-h-[40px] rounded-md px-3 bg-color-white border border-color-secondary hover:border-color-primary hover:text-color-accent dark:bg-color-third dark:hover:border-color-hitam transition-all duration-500"
+        className="flex items-center min-h-[40px] rounded-md px-3 bg-white border transition-all text-black hover:bg-neutral-100 md:hidden dark:bg-black dark:text-white dark:hover:bg-inherit dark:hover:text-white dark:border-0"
       >
-        <GiHamburgerMenu className=" text-base hover:text-color-accent transition-all duration-500" />
+        <GiHamburgerMenu className="text-base hover:text-red-600 transition-all duration-500" />
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
           <SheetTitle className="flex justify-center">
-            <LogoText/>
+            <LogoText />
           </SheetTitle>
           <div className="flex flex-col justify-center w-full gap-1">
             <Accordion type="single" collapsible>
               <AccordionItem
                 value="top-list"
-                className="p-0 flex flex-col items-center justify-center sm:items-start"
+                className="border-none p-0 flex flex-col items-center justify-center sm:items-start"
               >
-                <AccordionTrigger className="py-2 w-full hover:text-color-accent transition-all duration-500 cursor-pointer ">
-                  <p>Selebihnya</p>
+                <AccordionTrigger className="py-2 w-full hover:text-red-600 dark:text-white dark:hover:text-red-600 transition-all duration-500 cursor-pointer">
+                  <p>More</p>
                 </AccordionTrigger>
                 <AccordionContent className="flex flex-col w-full">
                   <Link
-                    className="py-2 hover:text-color-accent  transition-all duration-500 cursor-pointer"
                     href="/anime/top"
+                    className="py-2 hover:text-red-600 dark:text-white dark:hover:text-red-600 transition-all duration-500 cursor-pointer"
                   >
-                   Anime Terpopuler
+                    Top Anime
                   </Link>
                   <Link
                     href="/manga/top"
-                    className="py-2 hover:text-color-accent  transition-all duration-500 cursor-pointer"
+                    className="py-2 hover:text-red-600 dark:text-white dark:hover:text-red-600 transition-all duration-500 cursor-pointer"
                   >
-                    Manga Terpopuler
+                    Top Manga
                   </Link>
                   <Link
                     href="/anime/recommendations"
-                    className="py-2 hover:text-color-accent transition-all duration-500 cursor-pointer"
+                    className="py-2 hover:text-red-600 dark:text-white dark:hover:text-red-600 transition-all duration-500 cursor-pointer"
                   >
-                    Rekomendasi Anime
+                    Recommended Anime
                   </Link>
-                
                 </AccordionContent>
               </AccordionItem>
             </Accordion>
-
             <Link href="/anime">
-              <p className="py-2 hover:text-color-accent transition-all duration-500 cursor-pointer">
+              <p className="py-2 hover:text-red-600 dark:text-white dark:hover:text-red-600 transition-all duration-500 cursor-pointer">
                 Anime
               </p>
             </Link>
             <Link href="/manga">
-              <p className="py-2 hover:text-color-accent transition-all duration-500 cursor-pointer">
+              <p className="py-2 hover:text-red-600 dark:text-white dark:hover:text-red-600 transition-all duration-500 cursor-pointer">
                 Manga
               </p>
             </Link>

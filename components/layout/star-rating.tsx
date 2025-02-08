@@ -20,7 +20,7 @@ export const StarRating = ({ rating = 4 }: Props) => {
             />
             <FaStar
               size={15}
-              color={currentRating <= (rating || 0) ? "#EBF400" : "#e4e5e9"}
+              color={currentRating <= (rating || 0) ? "#ffc107" : "#e4e5e9"}
             />
           </label>
         );

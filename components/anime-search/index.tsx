@@ -23,17 +23,17 @@ const SearchAnime: FC<SearchAnimeProps> = ({
   return (
     <>
       <section id="anime">
-        <h1 className="lg:text-2xl text-xs font-bold text-color-accent underline">
-          Pencarian untuk Anime {`"`}
+        <h1 className="text-2xl font-bold">
+          Anime search results for {`'`}
           {keyword}
-          {`"`}
+          {`'`}
         </h1>
         {searchAnime.data.length <= 0 ? (
           <div className="gap-3 flex flex-col items-center justify-center h-[50dvh]">
             <SearchIcon className="h-12 w-10 text-neutral-400" />
-            <p className="text-lg">Tidak ditemukan</p>
+            <p className="text-lg">No results found</p>
             <Link href="/">
-              <Button>Kembali ke halaman utama</Button>
+              <Button>Go To Home Page</Button>
             </Link>
           </div>
         ) : (
@@ -42,17 +42,17 @@ const SearchAnime: FC<SearchAnimeProps> = ({
       </section>
       <Separator className="my-10" />
       <section id="anime">
-        <h1 className="lg:text-2xl text-xs font-bold text-color-accent underline">
-          Pencarian untuk Manga {`"`}
+        <h1 className="text-2xl font-bold">
+          Manga search results for {`'`}
           {keyword}
-          {`"`}
+          {`'`}
         </h1>
         {searchManga.data.length <= 0 ? (
           <div className="gap-3 flex flex-col items-center justify-center h-[50dvh]">
             <SearchIcon className="h-12 w-10 text-neutral-400" />
-            <p className="text-lg">Tidak ditemukan</p>
+            <p className="text-lg">No results found</p>
             <Link href="/">
-              <Button>Kembali ke halaman utama</Button>
+              <Button>Go To Home Page</Button>
             </Link>
           </div>
         ) : (

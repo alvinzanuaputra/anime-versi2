@@ -19,12 +19,12 @@ const Comments: FC = async () => {
   });
   return (
     <>
-      <HeroSmall title="Komentar saya" breadcrumb />
-      <section className="px-5 md:px-10 py-5 bg-color-blue dark:bg-color-dark ">
+      <HeroSmall title="My Comments" breadcrumb />
+      <section className="px-5 md:px-10 py-5 bg-neutral-50 dark:bg-neutral-800">
         {comments.length === 0 ? (
           <div className="h-[60dvh]">
-            <h1 className="text-xl font-medium text-center dark:bg-color-dark">
-              Belum ada komentar
+            <h1 className="text-xl font-medium text-center dark:text-neutral-500">
+              No comments found
             </h1>
           </div>
         ) : (

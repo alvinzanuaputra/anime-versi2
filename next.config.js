@@ -1,9 +1,8 @@
-// next.config.js
-
 const withPWA = require("@ducanh2912/next-pwa").default({
   cacheOnFrontEndNav: true,
   aggressiveFrontEndNavCaching: true,
   reloadOnOnline: true,
+  swcMinify: true,
   dest: "public",
   register: true,
   skipWaiting: true,
@@ -15,7 +14,6 @@ const withPWA = require("@ducanh2912/next-pwa").default({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  swcMinify: true, // Pastikan minifikasi dengan SWC diterapkan di sini
   images: {
     unoptimized: true,
     remotePatterns: [

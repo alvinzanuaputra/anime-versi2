@@ -15,11 +15,11 @@ export const Star = ({
     return (
       <span key={index}>
         {rating >= index + 1 ? (
-          <FaStar className="text-color-yellow text-xs sm:text-sm" />
+          <FaStar className="text-yellow-400 text-xs sm:text-sm" />
         ) : rating >= number ? (
-          <FaStarHalfAlt className="text-color-yellow text-xs sm:text-sm" />
+          <FaStarHalfAlt className="text-yellow-400 text-xs sm:text-sm" />
         ) : (
-          <AiOutlineStar className="text-color-yellow text-sm sm:text-base" />
+          <AiOutlineStar className="text-yellow-400 text-sm sm:text-base" />
         )}
       </span>
     );
@@ -27,7 +27,7 @@ export const Star = ({
   return (
     <div className="flex flex-col lg:flex-row text-sm gap-1">
       <span className="flex">{ratingStar}</span>
-      {scoredBy && <p className="text-xs">({scoredBy} Ulasan)</p>}
+      {scoredBy && <p className="text-xs">({scoredBy} reviews)</p>}
     </div>
   );
 };
