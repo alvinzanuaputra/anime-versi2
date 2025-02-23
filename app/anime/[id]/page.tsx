@@ -28,11 +28,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 const Anime = async ({ params }: { params: { id: string } }) => {
   const dataAnime: TFullAnime = await getAnimeFullById(params.id);
   const user = await authUserSession();
+
+  // Use optional chaining and fallback
+  const imageUrl = dataAnime.data?.images?.webp?.large_image_url || "/default-image.png";
+  const animeTitle = dataAnime.data?.title || "Unknown Title";
+
   const data = {
     user_email: user?.email as string,
     anime_mal_id: params.id,
-    anime_image_url: dataAnime.data.images.webp.large_image_url,
-    anime_title: dataAnime.data.title,
+    anime_image_url: imageUrl,
+    anime_title: animeTitle,
   };
 
   const dataComment = {
@@ -40,7 +45,7 @@ const Anime = async ({ params }: { params: { id: string } }) => {
     user_email: user?.email as string,
     user_image: user?.image as string,
     anime_mal_id: params.id,
-    anime_title: dataAnime.data.title,
+    anime_title: animeTitle,
   };
 
   const collection = await prisma.collection.findFirst({
@@ -49,7 +54,7 @@ const Anime = async ({ params }: { params: { id: string } }) => {
 
   return (
     <>
-      <HeroSmall title={dataAnime.data.title} genres={dataAnime.data.genres} />
+      <HeroSmall title={animeTitle} genres={dataAnime.data?.genres || []} />
       {user && !collection && <ButtonAddCollection data={data} />}
       <section className="px-2 pb-8 md:px-10 bg-neutral-100 dark:bg-neutral-800 dark:text-white">
         <AnimeDetail dataAnime={dataAnime} />
@@ -59,5 +64,6 @@ const Anime = async ({ params }: { params: { id: string } }) => {
     </>
   );
 };
+
 
 export default Anime;

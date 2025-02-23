@@ -20,12 +20,12 @@ const Collections: FC = async () => {
   });
   return (
     <>
-      <HeroSmall title="My Collections" breadcrumb />
-      <section className="px-5 md:px-10 pt-5 pb-14 bg-neutral-50 dark:bg-neutral-800">
+      <HeroSmall title="Koleksi saya" breadcrumb />
+      <section className="px-5 md:px-10 pt-5 pb-14 bg-color-blue dark:bg-color-dark dark:text-color-primary">
         {collections.length === 0 && mangaCollections.length === 0 ? (
           <div className="h-[60dvh]">
-            <h1 className="text-xl font-medium text-center dark:text-neutral-500">
-              No collection found
+            <h1 className="text-xl font-medium text-center dark:text-color-white">
+              Belum ada koleksi yang ditambahkan
             </h1>
           </div>
         ) : (

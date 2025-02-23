@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 .hover-image {
-  transition: 0.3s ease all;
-  -webkit-transition: 0.3s ease all;
-  -moz-transition: 0.3s ease all;
-  -ms-transition: 0.3s ease all;
-  -o-transition: 0.3s ease all;
+  transition: 0.5s ease all;
+  -webkit-transition: 0.5s ease all;
+  -moz-transition: 0.5s ease all;
+  -ms-transition: 0.5s ease all;
+  -o-transition: 0.5s ease all;
 }
 
 .hover-image:hover {
@@ -15,22 +17,38 @@
 }
 
 .loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #fff;
-  --tw-border-opacity: 1;
-  border-bottom-color: rgb(220 38 38 / var(--tw-border-opacity));
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
+  border: 6px solid;
+  border-color: #39A7FF #0000;
+  animation: spin 2s linear 0s infinite;
+  -webkit-animation: spin 2.5s linear 0s infinite;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
   }
-  100% {
-    transform: rotate(360deg);
+  to {
+      transform: rotate(360deg);
   }
 }
+
+@-webkit-keyframes spin {
+  from {
+      -webkit-transform: rotate(0deg);
+  }
+  to {
+      -webkit-transform: rotate(360deg);
+  }
+}
+
+
+
+
+

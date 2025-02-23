@@ -8,11 +8,11 @@ const SkeletonTopAnime = () => {
   return (
     <>
       <HeroSmall title="Top Anime" breadcrumb />
-      <section className="px-5 md:px-10 bg-neutral-50 dark:bg-neutral-800 dark:text-white">
+      <section className="px-5 md:px-10 bg-color-white dark:bg-color-dark dark:text-color-white">
         <div
           className={cn(
             "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 py-5",
-            large ? `xl:grid-cols-6` : `xl:grid-cols-4`
+            large ? `xl:grid-cols-6` : `xl:grid-cols-4  bg-color-white dark:bg-color-dark`
           )}
         >
           {[...Array(24)].map((_, index) => (

@@ -4,13 +4,13 @@ import TopAnimeList from "@/components/anime-top";
 import { HeroSmall } from "@/components/layout/hero-small";
 
 export const metadata: Metadata = {
-  title: "Top Anime",
+  title: "Anime Terpopuler",
 };
 const TopAnime = () => {
   return (
     <>
       <HeroSmall title="Top Anime" breadcrumb />
-      <section className="px-5 md:px-10 bg-neutral-50 dark:bg-neutral-800 dark:text-white">
+      <section className="px-5 md:px-10 bg-color-primary dark:bg-color-dark dark:text-color-primary">
         <TopAnimeList />
       </section>
     </>

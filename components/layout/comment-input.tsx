@@ -4,9 +4,8 @@ import { ChangeEventHandler, FormEventHandler, useState } from "react";
 import { toast } from "sonner";
 import { IoWarning } from "react-icons/io5";
 import { useRouter } from "next/navigation";
-
 import APIComment from "@/lib/apis/comment";
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import { StarRatingInput } from "./star-rating-input";
 
 import type { TAnimeComment, TMangaComment } from "@/types";
@@ -50,7 +49,7 @@ export const CommentInput = ({ data, dataManga }: CommentInputProps) => {
     if (comment.length < 10) {
       setErrors({
         comment: {
-          message: "Comment must be at least 10 characters",
+          message: "Komentar minimal harus 10 karakter",
         },
       });
       return;
@@ -58,7 +57,7 @@ export const CommentInput = ({ data, dataManga }: CommentInputProps) => {
     if (rating < 1) {
       setErrors({
         rating: {
-          message: "You need to give a rating",
+          message: "Kamu perlu memberi peringkat",
         },
       });
       return;
@@ -67,7 +66,7 @@ export const CommentInput = ({ data, dataManga }: CommentInputProps) => {
       toast.promise(APIComment.addComment(payloadAnime), {
         loading: "Loading... ",
         success: (data) => `${data.message}`,
-        error: "Failed to add comment",
+        error: "Gagal menambahkan komentar",
         finally: () => {
           router.refresh();
           setIsSubmitting(false);
@@ -80,7 +79,7 @@ export const CommentInput = ({ data, dataManga }: CommentInputProps) => {
       toast.promise(APIComment.addMangaComment(payloadManga), {
         loading: "Loading... ",
         success: (data) => `${data.message}`,
-        error: "Failed to add comment",
+        error: "Gagal menambahkan komentar",
         finally: () => {
           router.refresh();
           setIsSubmitting(false);
@@ -101,8 +100,8 @@ export const CommentInput = ({ data, dataManga }: CommentInputProps) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="flex flex-col gap-4 py-3 px-5 w-full rounded drop-shadow-md bg-neutral-50 dark:bg-neutral-800">
-        <h1 className="text-xl font-semibold w-full">Add Your Comment</h1>
+      <div className="flex mt-10 flex-col gap-4 py-3 px-5 w-full rounded drop-shadow-md bg-color-white dark:bg-color-dark">
+        <h1 className="text-xl font-semibold w-full">Tambahkan komentar kamu</h1>
         <textarea
           name="comment"
           id="comment"
@@ -110,7 +109,7 @@ export const CommentInput = ({ data, dataManga }: CommentInputProps) => {
           rows={5}
           value={comment}
           onChange={handleChange}
-          className="p-3 w-full rounded focus:outline-none text-sm md:text-base focus:ring bg-gray-100 dark:bg-neutral-700 focus:ring-neutral-300 dark:focus:ring-neutral-600"
+          className="shadow-lg shadow-color-hitam hover:shadow-none border border-color-accent hover:border-color-secondary p-3 w-full focus:outline-none text-sm md:text-base focus:ring bg-gray-100 bg-color-primary dark:bg-color-hitam focus:ring-color-hitam dark:focus:ring-color-white duration-1000 transition-all"
         />
         <StarRatingInput
           rating={rating}
@@ -120,21 +119,21 @@ export const CommentInput = ({ data, dataManga }: CommentInputProps) => {
         />
         <div className="py-1">
           {errors?.comment?.message && (
-            <p className="text-red-600 flex items-center gap-2 text-sm font-normal bg-red-200 p-2 rounded border border-red-500">
+            <p className="text-red-600 flex items-center gap-2 text-sm font-normal bg-color-red p-2 rounded border border-color-accent">
               <IoWarning className="text-lg" />
               {errors.comment.message}
             </p>
           )}
           {errors?.rating?.message && (
-            <p className="text-red-600 flex items-center gap-2 text-sm font-normal bg-red-200 p-2 rounded border border-red-500">
+            <p className="text-red-600 flex items-center gap-2 text-sm font-normal bg-color-red p-2 rounded border border-color-accent">
               <IoWarning className="text-lg" />
               {errors.rating.message}
             </p>
           )}
         </div>
-        <Button type="submit" disabled={isSubmitting}>
-          Add Comment
-        </Button>
+        <button className="border border-color-accent py-2 bg-color-primary dark:bg-color-hitam duration-1000 transition-all shadow-lg shadow-color-hitam hover:shadow-none" type="submit" disabled={isSubmitting}>
+          Kirim 
+        </button>
       </div>
     </form>
   );

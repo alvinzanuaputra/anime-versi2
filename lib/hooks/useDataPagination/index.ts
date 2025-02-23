@@ -20,7 +20,7 @@ export function useDataPagination<T>(request: string, query?: string) {
       }
     } catch (err) {
       console.error(err);
-      throw new Error("Something went wrong");
+      throw new Error("Ada suatu kesalahan");
     }
   }, [currentPage, query, request]);
 

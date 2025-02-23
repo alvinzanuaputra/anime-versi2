@@ -1,5 +1,5 @@
 "use client";
-
+import 'animate.css'
 import { FC, useState } from "react";
 import { signIn } from "next-auth/react";
 import { GithubIcon } from "lucide-react";
@@ -37,40 +37,41 @@ export const LoginDialog: FC<Props> = ({ classNames, pathname }) => {
   const isDesktop = useMediaQuery("(min-width: 768px)");
   if (isDesktop) {
     return (
+      <div>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger
           className={cn(
-            "w-full relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-neutral-100 hover:text-red-600  dark:hover:bg-neutral-800 dark:hover:text-red-600",
+            "w-full relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:text-color-accent",
             classNames
           )}
         >
-          Sign In
+          Masuk
         </DialogTrigger>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Choose Your Account</DialogTitle>
+            <DialogTitle className="text-color-accent underline">Pilih akun kamu</DialogTitle>
           </DialogHeader>
-          <DialogDescription>
-            When you sign in, you can add anime/manga to your own collection list, then you also can
-            add your comment for the anime/manga.
+          <DialogDescription className="text-color-hitam">
+            Saat kamu masuk, kamu dapat menambahkan anime/manga ke daftar koleksi kamu sendiri, lalu kamu juga bisa
+            tambahkan komentar kamu untuk anime/manga.
           </DialogDescription>
           {pathname ? (
             <div className="flex flex-col gap-2">
               <DialogClose asChild>
                 <Button
                   onClick={() => signIn("github", { callbackUrl: `${pathname}` })}
-                  className="w-full dark:text-white dark:bg-neutral-800  dark:hover:bg-neutral-900"
+                  className="w-full bg-color-primary dark:text-color-white dark:bg-color-dark  dark:hover:bg-color-dark"
                 >
-                  Continue with GitHub
+                  Lanjutkan dengan GitHub
                   <GithubIcon className="ml-2 w-5 h-5" />
                 </Button>
               </DialogClose>
               <DialogClose asChild>
                 <Button
                   onClick={() => signIn("google", { callbackUrl: `${pathname}` })}
-                  className="w-full dark:text-white dark:bg-neutral-800  dark:hover:bg-neutral-900"
+                  className="w-full dark:text-color-white dark:bg-color-dark  dark:hover:bg-color-dark"
                 >
-                  Continue with Google
+                  Lanjutkan dengan Google
                   <FaGoogle className="ml-2 text-base font-thin" />
                 </Button>
               </DialogClose>
@@ -80,18 +81,18 @@ export const LoginDialog: FC<Props> = ({ classNames, pathname }) => {
               <DialogClose asChild>
                 <Button
                   onClick={() => signIn("github")}
-                  className="w-full dark:text-white dark:bg-neutral-800  dark:hover:bg-neutral-900"
+                  className="w-full dark:text-color-white dark:bg-color-dark  dark:hover:bg-color-dark"
                 >
-                  Continue with GitHub
+                  Lanjutkan dengan GitHub
                   <GithubIcon className="ml-2 w-5 h-5" />
                 </Button>
               </DialogClose>
               <DialogClose asChild>
                 <Button
                   onClick={() => signIn("google")}
-                  className="w-full dark:text-white dark:bg-neutral-800  dark:hover:bg-neutral-900"
+                  className="w-full dark:text-color-white dark:bg-color-dark dark:hover:bg-color-dark"
                 >
-                  Continue with Google
+                  Lanjutkan dengan Google
                   <FaGoogle className="ml-2 text-base font-thin" />
                 </Button>
               </DialogClose>
@@ -99,44 +100,45 @@ export const LoginDialog: FC<Props> = ({ classNames, pathname }) => {
           )}
         </DialogContent>
       </Dialog>
+  </div>
     );
   }
 
   return (
+    <div>
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger
         className={cn(
-          "w-full relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-neutral-100 hover:text-red-600  dark:hover:bg-neutral-800 dark:hover:text-red-600",
+          "w-full relative flex cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-color-dark hover:text-color-accent dark:hover:bg-neutral-800 dark:hover:text-red-600",
           classNames
         )}
       >
-        Sign In
+        Masuk
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle>Sign In Your Account</DrawerTitle>
+          <DrawerTitle className="text-color-accent underline">Pilih akun kamu</DrawerTitle>
         </DrawerHeader>
         <DrawerDescription className="p-5">
-          When you sign in, you can add anime/manga to your own collection list, then you also can
-          add your comment for the anime/manga.
+        Saat kamu masuk, kamu dapat menambahkan anime atau manga ke daftar koleksi kamu sendiri, lalu kamu juga bisa tambahkan komentar kamu untuk anime atau manga.
         </DrawerDescription>
         {pathname ? (
           <div className="flex flex-col gap-2 p-5 pb-10">
             <DrawerClose asChild>
               <Button
                 onClick={() => signIn("github", { callbackUrl: `${pathname}` })}
-                className="w-full dark:text-white dark:bg-neutral-800  dark:hover:bg-neutral-900"
+                className="w-full bg-color-primary dark:text-color-white dark:bg-color-dark dark:hover:bg-color-dark"
               >
-                Continue with GitHub
+                Lanjutkan dengan GitHub
                 <GithubIcon className="ml-2 w-5 h-5" />
               </Button>
             </DrawerClose>
             <DrawerClose asChild>
               <Button
                 onClick={() => signIn("google", { callbackUrl: `${pathname}` })}
-                className="w-full dark:text-white dark:bg-neutral-800  dark:hover:bg-neutral-900"
+                className="w-full dark:text-color-white dark:bg-color-hitam dark:hover:bg-color-dark"
               >
-                Continue with Google
+                Lanjutkan dengan Google
                 <FaGoogle className="ml-2 text-base font-thin" />
               </Button>
             </DrawerClose>
@@ -146,18 +148,18 @@ export const LoginDialog: FC<Props> = ({ classNames, pathname }) => {
             <DrawerClose asChild>
               <Button
                 onClick={() => signIn("github")}
-                className="w-full dark:text-white dark:bg-neutral-800  dark:hover:bg-neutral-900"
+                className="w-full dark:text-color-white dark:bg-color-dark dark:hover:bg-color-dark"
               >
-                Continue with GitHub
+                Lanjutkan dengan GitHub
                 <GithubIcon className="ml-2 w-5 h-5" />
               </Button>
             </DrawerClose>
             <DrawerClose asChild>
               <Button
                 onClick={() => signIn("google")}
-                className="w-full dark:text-white dark:bg-neutral-800  dark:hover:bg-neutral-900"
+                className="w-full bg-color-primary dark:text-color-white dark:bg-color-dark dark:hover:bg-color-dark"
               >
-                Continue with Google
+                Lanjutkan dengan Google
                 <FaGoogle className="ml-2 text-base font-thin" />
               </Button>
             </DrawerClose>
@@ -165,5 +167,6 @@ export const LoginDialog: FC<Props> = ({ classNames, pathname }) => {
         )}
       </DrawerContent>
     </Drawer>
+    </div>
   );
 };

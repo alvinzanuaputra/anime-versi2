@@ -17,10 +17,10 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   manifest: "/manifest.json",
   title: {
-    template: "%s | ZORANIME",
-    default: "ZORANIME",
+    template: "%s | ZNUANIME",
+    default: "ZNUANIME",
   },
-  description: "The most popular anime and manga site on the internet",
+  description: "Situs anime dan manga terpopuler di Indonesia",
 };
 
 export default function RootLayout({

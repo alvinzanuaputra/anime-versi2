@@ -14,7 +14,7 @@ export const ButtonBack = () => {
 
   return (
     <Button size="sm" className="mt-5" onClick={handleBack}>
-      Go back
+      Kembali
     </Button>
   );
 };

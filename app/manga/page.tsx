@@ -11,7 +11,7 @@ const Manga = () => {
   return (
     <>
       <HeroSmall title="All Manga" breadcrumb />
-      <section className="px-5 md:px-10 bg-neutral-50 dark:bg-neutral-800 dark:text-white">
+      <section className="px-5 md:px-10 bg-color-blue dark:bg-color-dark dark:text-color-primary">
         <MangaLists />
       </section>
     </>

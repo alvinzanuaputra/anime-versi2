@@ -7,27 +7,27 @@ import { Button } from "@/components/ui/button";
 const ErrorPage = ({ error }: { error: Error }) => {
   return (
     <>
-      <HeroSmall title="Something Went Wrong!" />
-      <section className="flex justify-center px-10 h-screen bg-neutral-50 dark:bg-neutral-800">
+      <HeroSmall title="Ada suatu kesalahan !" />
+      <section className="flex justify-center px-10 h-screen bg-color-blue dark:bg-color-dark">
         <div className="p-10 text-center space-y-10">
-          <h1 className="text-lg font-medium text-red-500">
-            There was a problem!
+          <h1 className="text-lg font-medium text-color-accent">
+            Ada kesalahan !
           </h1>
-          <p className="text-xl md:text-4xl font-black">{error.message}</p>
-          <p className="text-xs md:text-sm font-medium text-neutral-600 dark:text-neutral-500">
-            Please try again later or contact support if the problem persist.
+          <p className="text-md md:text-md font-black">{error.message}</p>
+          <p className="text-xs md:text-sm font-medium text-color-dark dark:text-color-primary">
+            Silakan coba lagi nanti atau hubungi saya jika masalah terus berlanjut.
           </p>
           <div className="space-x-2">
             <Link href="/">
               <Button
                 variant="outline"
-                className="hover:text-red-500 dark:hover:text-red-500 transition-all duration-500"
+                className="hover:text-color-accent dark:hover:text-color-accent transition-all duration-500"
               >
-                Try Again
+                Coba lagi !
               </Button>
             </Link>
-            <Link href="mailto:zoldyckramdanz@gmail.com">
-              <Button variant="ghost">Contact Support</Button>
+            <Link href="https://mail.google.com/mail/u/0/?tf=cm&fs=1&to=zanualvin06@gmail.com">
+              <Button variant="ghost">Hubungi saya</Button>
             </Link>
           </div>
         </div>

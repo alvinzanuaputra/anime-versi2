@@ -1,5 +1,4 @@
 import { Metadata } from "next";
-
 import { HeroSmall } from "@/components/layout/hero-small";
 import { NotFoundSection } from "@/components/not-found";
 
@@ -11,7 +10,7 @@ const NotFound = () => {
   return (
     <>
       <HeroSmall title="404 - Not Found" breadcrumbPage="404 - Not Found" />
-      <section className="text-center px-10 py-3 h-[60dvh] md:px-10 bg-neutral-50 dark:bg-neutral-800 dark:text-white">
+      <section className="text-center px-10 py-3 h-[60dvh] md:px-10 bg-white dark:bg-color-dark text-color-white dark:text-color-primary">
         <NotFoundSection />
       </section>
     </>

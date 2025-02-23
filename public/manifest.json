@@ -1,12 +1,12 @@
 {
-    "theme_color": "#ba0303",
+    "theme_color": "#39A7FF",
     "background_color": "#ffffff",
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "ZORANIME",
-    "short_name": "ZORANIME",
-    "description": "Zoranime is an anime list website and also have manga list and etc.",
+    "name": "ZNUANIME",
+    "short_name": "ZNUANIME",
+    "description": "ZNUANIME is an anime and manga list website, enjoy.",
     "icons": [
         {
             "src": "/icon-192x192.png",

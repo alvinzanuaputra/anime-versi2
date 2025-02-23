@@ -39,15 +39,18 @@ export const CommentSection: FC<CommentSectionProps> = async ({
     });
   }
 
+  comments = comments.reverse();
+  mangaComments = mangaComments.reverse();
+
   return (
     <section className="mb-3 mt-5">
-      <div className="flex flex-col gap-4 py-3 px-5 w-full rounded h-auto drop-shadow-md bg-neutral-50 dark:bg-neutral-800">
-        <h1 className="text-xl font-semibold w-full">Comments</h1>
+      <div className="flex flex-col gap-4 py-3 px-5 w-full h-auto drop-shadow-md bg-color-primary dark:bg-color-dark">
+        <h1 className="text-xl font-semibold w-full">Daftar komentar</h1>
         <Separator />
         <div className="flex flex-col gap-2">
           {anime_mal_id && comments.length === 0 && (
-            <p className="text-sm md:text-base text-center py-5 text-neutral-500 dark:text-neutral-400">
-              No comments yet
+            <p className="text-sm md:text-base text-center py-5 text-color-hitam dark:text-color-white">
+              Belum ada komentar
             </p>
           )}
           {comments.map((item) => {
@@ -76,13 +79,13 @@ export const CommentSection: FC<CommentSectionProps> = async ({
                   <CardHeader className="p-0 text-base md:text-lg font-semibold">
                     {item.username}
                   </CardHeader>
-                  <CardDescription className="text-neutral-950 dark:text-white">
+                  <CardDescription className="text-color-hitam dark:text-color-white">
                     {item.comment}
                   </CardDescription>
                   <CardFooter className="p-0 pt-3 flex-col items-start">
                     <StarRating rating={item.rating} />
-                    <span className="text-xs md:text-sm mt-1 text-neutral-600 dark:text-neutral-500">
-                      {date === new Date() ? "just now" : dateStr}
+                    <span className="text-xs md:text-sm mt-1 text-color-hitam dark:text-color-white">
+                      {date === new Date() ? "Baru saja" : dateStr}
                     </span>
                   </CardFooter>
                 </div>
@@ -90,8 +93,8 @@ export const CommentSection: FC<CommentSectionProps> = async ({
             );
           })}
           {mal_id && mangaComments.length === 0 && (
-            <p className="text-sm md:text-base text-center py-5 text-neutral-500 dark:text-neutral-400">
-              No comments yet
+            <p className="text-sm md:text-base text-center py-5 text-color-hitam dark:text-color-white">
+              Belum ada komentar
             </p>
           )}
           {mangaComments.map((item) => {
@@ -120,12 +123,12 @@ export const CommentSection: FC<CommentSectionProps> = async ({
                   <CardHeader className="p-0 text-base md:text-lg font-semibold">
                     {item.username}
                   </CardHeader>
-                  <CardDescription className="text-neutral-950 dark:text-white">
+                  <CardDescription className="text-color-hitam dark:text-color-white">
                     {item.comment}
                   </CardDescription>
                   <CardFooter className="p-0 pt-3 flex-col items-start">
                     <StarRating rating={item.rating} />
-                    <span className="text-xs md:text-sm mt-1 text-neutral-600 dark:text-neutral-500">
+                    <span className="text-xs md:text-sm mt-1 text-color-hitam dark:text-color-white">
                       {dateStr}
                     </span>
                   </CardFooter>

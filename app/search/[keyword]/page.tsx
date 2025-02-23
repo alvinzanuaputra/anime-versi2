@@ -26,7 +26,7 @@ const Search = async ({ params }: { params: { keyword: string } }) => {
   return (
     <>
       <HeroSmall title={decodedKeyword} breadcrumbPage={decodedKeyword} />
-      <section className="p-5 pt-3 md:px-10 bg-neutral-50 dark:bg-neutral-800 dark:text-white">
+      <section className="p-5 pt-3 md:px-10 bg-color-blue dark:bg-color-dark dark:text-color-primary">
         <SearchAnime
           keyword={decodedKeyword}
           searchAnime={searchAnime}

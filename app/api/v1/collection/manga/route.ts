@@ -17,11 +17,11 @@ export async function POST(req: Request) {
   if (!createCollection) {
     return Response.json({
       status: 500,
-      message: "Failed to add collection",
+      message: "Gagal menambahkan ke koleksi !",
     });
   } else
     return Response.json({
       status: 200,
-      message: "Collection added successfully!",
+      message: "Sukses menambahkan koleksi !",
     });
 }

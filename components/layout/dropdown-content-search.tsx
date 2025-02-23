@@ -41,20 +41,21 @@ export const DropdownContentSearch = ({
   }, [state, dropdownRef, setDropdownContent]);
 
   return (
-    <div className="absolute">
-      <div
-        data-loading={isLoading}
-        ref={dropdownRef}
-        data-state={state}
-        className="absolute border overflow-hidden text-base rounded p-3 pe-0 py-1 z-50 md:-right-[16dvh] lg:-right-[34dvh] top-1 w-[35dvh] sm:w-[40dvh] md:w-[50dvh] data-[loading=true]:h-auto data-[loading=false]:h-[60dvh] origin-top transition-all
-          data-[state=open]:block data-[state=closed]:hidden data-[state=open]:animate-in data-[state=closed]:animate-out
-          data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95
-          text-neutral-900 dark:text-neutral-50 bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-900"
-      >
-        <div
-          data-loading={isLoading}
-          className="flex flex-col overflow-y-auto scroll-ml-10 data-[loading=true]:h-[10dvh] h-[54dvh]"
-        >
+    <div className="absolute mt-2 left-1 lg:left-48 sm:left-6 w-1/2" style={{ zIndex: 9999 }}>
+  <div
+    data-loading={isLoading}
+    ref={dropdownRef}
+    data-state={state}
+    className="absolute px-4 border overflow-hidden text-base rounded p-3 pe-0 py-1 z-50 md:-right-[16dvh] lg:-right-[34dvh] top-1 w-[35dvh] sm:w-[40dvh] md:w-[50dvh] data-[loading=true]:h-auto data-[loading=false]:h-[60dvh] origin-top transition-all
+      data-[state=open]:block data-[state=closed]:hidden data-[state=open]:animate-in data-[state=closed]:animate-out
+      data-[state=open]:fade-in-0 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95
+      text-color-dark dark:text-color-primary bg-color-primary dark:bg-color-hitam duration-500"
+  >
+    <div
+      data-loading={isLoading}
+      className="flex flex-col overflow-y-auto scroll-ml-10 data-[loading=true]:h-[10dvh] h-[54dvh]"
+      style={{ zIndex: 9999 }} // Adjust the z-index of this child
+    >
           {dataAnime && (
             <div className="flex flex-col gap-2 my-1">
               <h3 className="text-sm font-normal">Anime</h3>
@@ -65,14 +66,14 @@ export const DropdownContentSearch = ({
                     <Link key={item.mal_id} href={`/anime/${item.mal_id}`}>
                       <li className="p-1 rounded flex gap-2 dark:hover:bg-neutral-700 hover:bg-neutral-100 cursor-pointer">
                         <Image
-                          src={item.images.webp.small_image_url}
+                          src={item.images.webp.large_image_url}
                           width={30}
                           height={50}
                           alt="..."
                           className="max-h-20"
                         />
                         <div>
-                          <h3 className="line-clamp-1 text-left text-sm hover:underline hover:text-neutral-900 dark:hover:text-neutral-50">
+                          <h3 className="line-clamp-1 text-left text-sm hover:underline hover:text-color-accent dark:hover:text-color-accent">
                             {item.title}
                           </h3>
                           <p className="text-left text-xs font-normal">{item.type}</p>
@@ -81,7 +82,7 @@ export const DropdownContentSearch = ({
                     </Link>
                   ))
                 ) : (
-                  <p className="text-sm font-normal text-neutral-500">No results found</p>
+                  <p className="text-sm font-normal text-color-primary underline">Tidak ada hasil yang ditemukan</p>
                 )}
               </ul>
             </div>
@@ -112,7 +113,7 @@ export const DropdownContentSearch = ({
                     </Link>
                   ))
                 ) : (
-                  <p className="text-sm font-normal text-neutral-500">No results found</p>
+                  <p className="text-sm font-normal text-color-primary underline">Tidak ada hasil yang ditemukan</p>
                 )}
               </ul>
             </div>
@@ -122,7 +123,7 @@ export const DropdownContentSearch = ({
           <div className="py-2 text-xs font-normal">
             <Link href="/search/[keyword]" as={`/search/${query}`} className="hover:underline">
               <p>
-                View all results for {'"'}
+                Lihat semua hasil untuk {'"'}
                 {query}
                 {'"'}
               </p>
@@ -131,7 +132,7 @@ export const DropdownContentSearch = ({
         ) : (
           <div className="flex py-2 text-xs font-normal">
             <p>
-              View all results for {'"'}
+              Lihat semua hasil untuk {'"'}
               {query}
               {'"'}
             </p>

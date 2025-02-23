@@ -9,7 +9,7 @@ const APICollection = {
       });
       return response.json();
     } catch (error) {
-      throw new Error("Failed to add new collection");
+      throw new Error("Gagal menambahkan ke koleksi");
     }
   },
   addMangaCollection: async (dataManga: TMangaCollection) => {
@@ -20,7 +20,7 @@ const APICollection = {
       });
       return response.json();
     } catch (error) {
-      throw new Error("Failed to add new collection");
+      throw new Error("Gagal menambahkan ke koleksi");
     }
   },
   deleteCollection: async (id: number) => {
@@ -30,7 +30,7 @@ const APICollection = {
       });
       return response.json();
     } catch (error) {
-      throw new Error("Failed to delete Collection");
+      throw new Error("Gagal menghapus dari koleksi");
     }
   },
   deleteMangaCollection: async (id: number) => {
@@ -40,7 +40,7 @@ const APICollection = {
       });
       return response.json();
     } catch (error) {
-      throw new Error("Failed to delete Collection");
+      throw new Error("Gagal menghapus dari koleksi");
     }
   },
 };

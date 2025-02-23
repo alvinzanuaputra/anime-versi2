@@ -8,7 +8,7 @@ export async function DELETE(req: Request) {
     await prisma.mangaCollection.delete({ where: { id: id } });
 
     return NextResponse.json(
-      { message: "collection deleted successfully!" },
+      { message: "Koleksi berhasil dihapus !" },
       { status: 200 }
     );
   } catch (err) {

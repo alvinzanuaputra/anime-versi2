@@ -32,7 +32,7 @@ export const DeleteDialog: FC<Props> = ({ anime_title, id, title }) => {
       toast.promise(APICollection.deleteCollection(id as number), {
         loading: "Loading... ",
         success: (data) => `${data.message}`,
-        error: "Failed to delete to Collection",
+        error: "Gagal menghapus koleksi",
         finally: () => {
           setIsSubmitting(false);
           router.refresh();
@@ -43,7 +43,7 @@ export const DeleteDialog: FC<Props> = ({ anime_title, id, title }) => {
       toast.promise(APICollection.deleteMangaCollection(id as number), {
         loading: "Loading... ",
         success: (data) => `${data.message}`,
-        error: "Failed to delete to Collection",
+        error: "Gagal menghapus koleksi",
         finally: () => {
           setIsSubmitting(false);
           router.refresh();
@@ -54,17 +54,17 @@ export const DeleteDialog: FC<Props> = ({ anime_title, id, title }) => {
 
   return (
     <Dialog>
-      <DialogTrigger className="absolute top-2 -right-1 z-10 px-2 py-1 shadow-md cursor-pointer rounded-tl rounded-bl bg-slate-50 dark:bg-neutral-800">
+      <DialogTrigger className="absolute top-2 -right-1 z-10 px-2 py-1 shadow-md cursor-pointer rounded-tl rounded-bl bg-color-primary dark:bg-color-dark">
         <MdOutlineDeleteSweep className="text-xl" />
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Are you sure?</DialogTitle>
+          <DialogTitle className="text-color-dark dark:text-color-primary">Apakah kamu yakin ?</DialogTitle>
         </DialogHeader>
         <DialogDescription>
-          You want to delete{" "}
-          <strong>{anime_title ? anime_title : title}</strong> from your
-          collections list?.
+          Kamu ingin menghapus{" "}
+          <strong>{anime_title ? anime_title : title}</strong> dari daftar
+          koleksimu ?
         </DialogDescription>
         <DialogFooter className="flex gap-3 md:gap-0">
           <DialogClose asChild>
@@ -73,11 +73,11 @@ export const DeleteDialog: FC<Props> = ({ anime_title, id, title }) => {
               onClick={deleteCollection}
               disabled={isSubmitting}
             >
-              Delete
+              Hapus
             </Button>
           </DialogClose>
           <DialogClose asChild>
-            <Button variant="outline">Cancel</Button>
+            <Button variant="outline">Batalkan</Button>
           </DialogClose>
         </DialogFooter>
       </DialogContent>

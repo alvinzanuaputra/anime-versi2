@@ -9,7 +9,7 @@ export const getMangaFullById = async (id: number | string) => {
     return manga;
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to fetch Anime");
+    throw new Error("Data gagal dieksekusi");
   }
 };
 
@@ -21,7 +21,7 @@ export const getAnimeFullById = async (id: number | string) => {
     return anime;
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to fetch Anime");
+    throw new Error("Data gagal dieksekusi");
   }
 };
 
@@ -32,7 +32,7 @@ export const getAnimeResponse = async (resource: string, query?: string) => {
     return anime;
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to fetch Anime");
+    throw new Error("Data gagal dieksekusi");
   }
 };
 
@@ -47,6 +47,6 @@ export const getRandomAnimeResponse = async (resource: string) => {
     return anime;
   } catch (error) {
     console.error(error);
-    throw new Error("Failed to fetch Anime");
+    throw new Error("Data gagal dieksekusi");
   }
 };

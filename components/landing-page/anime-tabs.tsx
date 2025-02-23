@@ -17,20 +17,20 @@ export const TabsAnime = ({ dataNow, dataUpcoming }: TabsAnimeProps) => {
     <Tabs defaultValue="now" className="w-full lg:w-[50dvh]">
       <TabsList className="w-full">
         <TabsTrigger className="w-full uppercase font-semibold text-sm" value="now">
-          Season Now
+          Musim Ini
         </TabsTrigger>
         <TabsTrigger className="w-full uppercase font-semibold text-sm" value="upcoming">
-          Upcoming
+          Mendatang
         </TabsTrigger>
       </TabsList>
       <TabsContent value="now">
-        <Card className="rounded-md border-none bg-neutral-100 dark:bg-neutral-700">
+        <Card className="rounded-md border-none bg-color-white dark:bg-color-hitam">
           {dataNow.data?.map((anime, index) => (
             <Link href={`/anime/${anime.mal_id}`} key={index}>
               <CardContent className="p-3 pb-0">
                 <div className="flex">
                   <Image
-                    src={anime.images.webp.image_url}
+                    src={anime.images.webp.large_image_url}
                     width={50}
                     height={50}
                     alt="Hero Section"
@@ -40,7 +40,7 @@ export const TabsAnime = ({ dataNow, dataUpcoming }: TabsAnimeProps) => {
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger>
-                          <h1 className="line-clamp-2 text-start text-base font-semibold transition-all hover:text-red-600">
+                          <h1 className="line-clamp-2 text-start text-base font-semibold transition-all hover:text-color-accent">
                             {anime.title}
                           </h1>
                         </TooltipTrigger>
@@ -48,10 +48,10 @@ export const TabsAnime = ({ dataNow, dataUpcoming }: TabsAnimeProps) => {
                       </Tooltip>
                     </TooltipProvider>
                     <p className="text-xs">
-                      Episode {anime.episodes}, Source: {anime.source}
+                      Episode {anime.episodes}, Sumber: {anime.source}
                     </p>
-                    <p className="text-xs font-semibold text-red-800 dark:text-red-600">
-                      {anime.popularity} Views
+                    <p className="text-xs font-semibold text-color-accent dark:text-color-accent">
+                      {anime.popularity} Ditonton
                     </p>
                   </div>
                 </div>
@@ -66,13 +66,13 @@ export const TabsAnime = ({ dataNow, dataUpcoming }: TabsAnimeProps) => {
         </Card>
       </TabsContent>
       <TabsContent value="upcoming">
-        <Card className="rounded-md border-none bg-neutral-100 dark:bg-neutral-700">
+        <Card className="rounded-md border-none bg-color-white dark:bg-color-hitam">
           {dataUpcoming.data?.map((anime, index) => (
             <Link href={`/anime/${anime.mal_id}`} key={index}>
               <CardContent className="p-3 pb-0">
                 <div className="flex">
                   <Image
-                    src={anime.images.webp.image_url}
+                    src={anime.images.webp.large_image_url}
                     width={50}
                     height={50}
                     alt="Hero Section"
@@ -82,7 +82,7 @@ export const TabsAnime = ({ dataNow, dataUpcoming }: TabsAnimeProps) => {
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger>
-                          <h1 className="line-clamp-2 text-start text-base font-semibold transition-all hover:text-red-600">
+                          <h1 className="line-clamp-2 text-start text-base font-semibold transition-all hover:text-color-accent">
                             {anime.title}
                           </h1>
                         </TooltipTrigger>
@@ -90,17 +90,17 @@ export const TabsAnime = ({ dataNow, dataUpcoming }: TabsAnimeProps) => {
                       </Tooltip>
                     </TooltipProvider>
                     <p className="text-xs">
-                      Episode {anime.episodes}, Source: {anime.source}
+                      Episode {anime.episodes}, Sumber: {anime.source}
                     </p>
-                    <p className="text-xs font-semibold text-red-800 dark:text-red-600">
-                      {anime.popularity} Views
+                    <p className="text-xs font-semibold text-color-hitam dark:text-color-primary">
+                      {anime.popularity} Ditonton
                     </p>
                   </div>
                 </div>
                 {index !== dataNow.data?.length - 1 ? (
                   <Separator className="mt-3" />
                 ) : (
-                  <Separator className="mt-3 bg-inherit dark:bg-inherit" />
+                  <Separator className="mt-3 bg-color-white dark:bg-color-hitam" />
                 )}
               </CardContent>
             </Link>

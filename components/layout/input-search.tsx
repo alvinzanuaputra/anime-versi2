@@ -1,5 +1,4 @@
 "use client";
-
 import {
   type FormEvent,
   useRef,
@@ -12,13 +11,12 @@ import {
 } from "react";
 import { IoSearch } from "react-icons/io5";
 import { useRouter } from "next/navigation";
-
 import { getAnimeResponse } from "@/lib/apis";
 import { useDebounce } from "@/lib/hooks";
 import { Input } from "@/components/ui/input";
-
 import type { TAnime, TManga } from "@/types";
 import { DropdownContentSearch } from "./dropdown-content-search";
+import 'animate.css';
 
 type FormEvents = InputHTMLAttributes<HTMLInputElement> & {
   children?: ReactNode;
@@ -83,11 +81,11 @@ export const InputSearch = () => {
   };
 
   return (
-    <div ref={dropdownRef}>
+    <div ref={dropdownRef} className="">
       <form onSubmit={handleSearch}>
         <Input
           aria-label="Search bar"
-          placeholder="Search..."
+          placeholder="Cari anime..."
           ref={searchRef}
           value={keyword}
           onChange={handleChange}
@@ -98,10 +96,11 @@ export const InputSearch = () => {
           }}
         >
           <button type="submit" aria-label="Search">
-            <IoSearch />
+            <IoSearch className="text-color-dark dark:text-color-white hover:opacity-30 transition-all duration-500 "/>
           </button>
         </Input>
       </form>
+  
       <DropdownContentSearch
         state={dropdownContent}
         setDropdownContent={setDropdownContent}
@@ -111,6 +110,7 @@ export const InputSearch = () => {
         isLoading={isLoading}
         query={query}
       />
+  
     </div>
   );
 };
