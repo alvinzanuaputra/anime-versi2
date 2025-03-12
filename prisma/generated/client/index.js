@@ -164,7 +164,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\ASUS\\Desktop\\Susah Sumpah\\alvinznutra-animev2\\prisma\\generated\\client",
+      "value": "C:\\Users\\ASUS\\Desktop\\Project\\alvinznutra-animev2\\prisma\\generated\\client",
       "fromEnvVar": null
     },
     "config": {
@@ -178,7 +178,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\ASUS\\Desktop\\Susah Sumpah\\alvinznutra-animev2\\prisma\\schema.prisma",
+    "sourceFilePath": "C:\\Users\\ASUS\\Desktop\\Project\\alvinznutra-animev2\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
